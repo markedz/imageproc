@@ -14,6 +14,10 @@ RawImage::RawImage(const RawImage::ByteOrder &_byteOrder,
     : byteOrder(_byteOrder), pixFormat(_pixFormat) {}
 
 RawImage &RawImage::operator=(const RawImage &orig) {
+
+  if (this == &orig)
+    return *this;
+
   // before copying anything, make sure there was nothing created before (delete
   // if it was)
   wipe();
